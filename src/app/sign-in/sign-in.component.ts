@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { FormGroup,FormBuilder } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,9 @@ export class SignInComponent {
 
   signInForm: FormGroup;
   // auth = getAuth();
+  // connected: Boolean = false;
+  //@Input() connected: any;
+  @Output() connected: Boolean = false;;
 
   constructor(private formBuilder: FormBuilder) {
     this.signInForm = this.formBuilder.group({
@@ -23,9 +26,7 @@ export class SignInComponent {
   }
 
   onSubmit() {
-    if (this.signInForm.valid) {
-      // this.authService.signIn(this.signInForm.value.email, this.signInForm.value.password);
-    }
+    this.connected = true;
   }
 
   
